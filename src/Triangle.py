@@ -9,8 +9,8 @@ class Triangle(Figure):
         instance = super().__new__(cls)
         return instance
 
-    def __init__(self, a, b, c, name='Triangle'):
-        super().__init__(a, name)
+    def add_area(self, a, b, c, name='Triangle'):
+        super().add_area(a, name)
         self.a = a
         self.b = b
         self.c = c
@@ -24,5 +24,6 @@ class Triangle(Figure):
     def get_area(self) -> int:
         return self.area_formula(self.get_perimeter, self.a, self.b, self.c)
 
+    @property
     def get_perimeter(self) -> int:
         return self.a + self.b + self.c

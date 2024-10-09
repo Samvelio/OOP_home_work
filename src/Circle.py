@@ -3,8 +3,10 @@ from src.Figure import Figure
 
 
 class Circle(Figure):
-    def __init__(self, radius, name='Circle'):
-        super().__init__(radius, name)
+    def add_area(self, radius, name='Circle'):
+        if radius < 0:
+            raise ValueError("Radius must be >0")
+        super().add_area(radius, name)
         self.radius = radius
 
     @property
