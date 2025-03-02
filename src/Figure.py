@@ -2,6 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class Figure(ABC):
+    def __init__(self, side_a, side_b, side_c):
+        self.side_a = side_a
+        self.side_b = side_b
+        self.side_c = side_c
     @property
     @abstractmethod
     def get_area(self):

@@ -2,18 +2,17 @@ from src.Figure import Figure
 
 
 class Triangle(Figure):
-    def _new_(cls, *args):
-        a, b, c = args
-        if not (a + b > c and a + c + d and b + c > a):
-            return None
+    def _new_(cls, a, b, c):
+        if not (a + b > c and a + c > b and b + c > a):
+            raise ValueError("Invalid triangle sides")
         instance = super().__new__(cls)
         return instance
 
-    def add_area(self, a, b, c, name='Triangle'):
-        super().add_area(a, name)
-        self.a = a
-        self.b = b
-        self.c = c
+    def __init__(self, a, b, c):
+        super().__init__(a, b, c)
+        self.side_a = a
+        self.side_b = b
+        self.side_c = c
 
     @staticmethod
     def area_formula(p, a, b, c):
@@ -21,9 +20,9 @@ class Triangle(Figure):
         return (p * (p - a) * (p - b) * (p - c)) ** 0.5
 
     @property
-    def get_area(self) -> int:
-        return self.area_formula(self.get_perimeter, self.a, self.b, self.c)
+    def get_area(self) -> float:
+        return self.area_formula(self.get_perimeter, self.side_a, self.side_b, self.side_c)
 
     @property
-    def get_perimeter(self) -> int:
-        return self.a + self.b + self.c
+    def get_perimeter(self) -> float:
+        return self.side_a + self.side_b + self.side_c
