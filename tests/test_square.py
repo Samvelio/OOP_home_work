@@ -1,4 +1,6 @@
+import pytest
 from src.Square import Square
+
 
 
 class TestSquare():
@@ -16,3 +18,7 @@ class TestSquare():
         assert square.side_a == 5
         assert square.side_b == 5
         assert square.get_area == 25
+
+    def test_negative_side(self):
+        with pytest.raises(ValueError):
+            Square(-5)

@@ -14,3 +14,8 @@ class Rectangle(Figure):
     @property
     def get_perimeter(self) -> int:
         return 2 * (self.side_a + self.side_b)
+
+    def add_area(self, other_figure):
+        if not isinstance(other_figure, Figure):
+            raise ValueError("Should be a Figure.")
+        return self.get_area + other_figure.get_area

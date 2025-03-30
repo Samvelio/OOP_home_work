@@ -2,14 +2,9 @@ from src.Figure import Figure
 
 
 class Triangle(Figure):
-    def _new_(cls, a, b, c):
-        if not (a + b > c and a + c > b and b + c > a):
+    def __init__(self, a=None, b=None, c=None):
+        if a is None or b is None or c is None:
             raise ValueError("Invalid triangle sides")
-        instance = super().__new__(cls)
-        return instance
-
-    def __init__(self, a, b, c):
-        super().__init__(a, b, c)
         self.side_a = a
         self.side_b = b
         self.side_c = c

@@ -1,3 +1,4 @@
+import pytest
 from src.Circle import Circle
 
 
@@ -13,3 +14,8 @@ class TestCircle():
         circle = Circle(10)
         assert circle.radius == 10
         assert abs(circle.get_area)
+
+    def test_negative_perimeter(self):
+        with pytest.raises(ValueError):
+            Circle(-10)
+

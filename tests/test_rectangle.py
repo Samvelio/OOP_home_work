@@ -1,3 +1,4 @@
+import pytest
 from src.Rectangle import Rectangle
 
 
@@ -15,3 +16,7 @@ class TestRectangle():
         assert rectangle.side_a == 9
         assert rectangle.side_b == 5
         assert rectangle.get_area == 45
+
+    def test_none_side(self):
+        with pytest.raises(ValueError):
+            Rectangle(None, 0)

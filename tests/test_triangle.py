@@ -1,3 +1,4 @@
+import pytest
 from src.Triangle import Triangle
 
 
@@ -18,3 +19,7 @@ class TestTriangle():
         assert triangle.side_b == 5
         assert triangle.side_c == 6
         assert triangle.get_area, 2 == 9.92
+
+    def test_none_side(self):
+        with pytest.raises(ValueError):
+            Triangle()
